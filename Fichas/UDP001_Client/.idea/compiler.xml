@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SDt_UDP001_1" />
+        <module name="UDP001_Client" />
       </profile>
     </annotationProcessing>
   </component>

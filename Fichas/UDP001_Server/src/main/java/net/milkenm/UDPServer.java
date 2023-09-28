@@ -1,4 +1,4 @@
-package org.example;
+package net.milkenm;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
