@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class TCPClient {
 	public static void main(String[] args) {
-		Socket s = null;
+		/*Socket s = null;
 		try
 		{
 			// Porta do servidor
@@ -43,6 +43,6 @@ public class TCPClient {
 				{
 					System.out.println("Close:" + e.getMessage());
 				}
-		}
+		}*/
 	}
 }

@@ -1,7 +1,4 @@
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.EOFException;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 
 public class Connection extends Thread {
@@ -30,7 +27,11 @@ public class Connection extends Thread {
 		try
 		{
 			// Lê os dados do cliente
-			Person person = Person.read(this._clientSocket);
+			//Person person = Person.read(this._clientSocket);
+
+			DataInputStream inputStream = new DataInputStream(_clientSocket.getInputStream());
+			ObjectInputStream ois = new ObjectInputStream(inputStream);
+			Person person = (Person) ois.readObject();
 
 			// Envia a mensagem (resposta) ao cliente
 			this._out.writeUTF(person.getName());
@@ -40,6 +41,9 @@ public class Connection extends Thread {
 		} catch (IOException ex)
 		{
 			System.out.println("IO:" + ex.getMessage());
+		} catch (ClassNotFoundException e)
+		{
+			throw new RuntimeException(e);
 		} finally
 		{
 			try
