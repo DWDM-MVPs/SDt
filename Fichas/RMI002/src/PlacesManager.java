@@ -22,8 +22,7 @@ public class PlacesManager extends UnicastRemoteObject implements PlacesListInte
 			{
 				this._registry = (ObjectRegistryInterface) Naming.lookup("rmi://localhost:2023/registry");
 			}
-			// todo
-			this._registry.addRManager(p.getPostalCode(), "rmi://localhost:2022/placelist");
+			this._registry.addObject(p.getPostalCode(), "rmi://localhost:2022/placelist");
 		} catch (Exception ex)
 		{
 			throw new RuntimeException(ex);

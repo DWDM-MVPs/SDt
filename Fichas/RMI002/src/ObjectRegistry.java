@@ -12,7 +12,7 @@ public class ObjectRegistry extends UnicastRemoteObject implements ObjectRegistr
 	}
 
 	@Override
-	public void addRManager(String objectId, String serverAddress) {
+	public void addObject(String objectId, String serverAddress) {
 		if (this._objectsMap.containsKey(objectId))
 		{
 			System.out.println("Object already exists");
