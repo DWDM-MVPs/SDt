@@ -2,15 +2,18 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class RMIServer {
-	public static void main(String[] args) {
+public class RMIServer
+{
+	public static void main(String[] args)
+	{
 		Registry r = null;
 		PlacesListInterface placeList = null;
 
 		try
 		{
-			r = LocateRegistry.createRegistry(2022);
-		} catch (RemoteException a)
+			r = LocateRegistry.createRegistry(Integer.parseInt(args[0]));
+		}
+		catch (RemoteException a)
 		{
 			a.printStackTrace();
 			return;
@@ -22,7 +25,8 @@ public class RMIServer {
 			r.rebind("placelist", placeList);
 
 			System.out.println("Place server ready");
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			System.out.println("Place server main " + e.getMessage());
 		}
